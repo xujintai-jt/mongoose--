@@ -1,0 +1,37 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-03-23 16:33:42
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-03-23 17:08:33
+ * @Description: file content
+ * @FilePath: \mongo db学习\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>按钮</button>
+  <script>
+    const btn = document.querySelector("button");
+
+    function fn1() {
+      console.log('this', this);
+      console.log('arguments', arguments);
+      console.log("按钮被点击了");
+    }
+  </script>
+  <!-- <script src="防抖.js"></script> -->
+  <script src="节流.js"></script>
+
+
+
+</body>
+
+</html>
