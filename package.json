@@ -1,0 +1,31 @@
+{
+  "name": "mongo-db-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xujintai-jt/mongoose--.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xujintai-jt/mongoose--/issues"
+  },
+  "homepage": "https://github.com/xujintai-jt/mongoose--#readme",
+  "dependencies": {
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "babel-loader": "^8.2.2"
+  }
+}
