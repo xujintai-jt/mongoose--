@@ -23,10 +23,9 @@ eval("!function(t,e){ true?module.exports=e():0}(\"undefined\"!=typeof self?self
 /*!**************************!*\
   !*** ./js/03_test_封装.js ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mongoose___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mongoose基础封装/基础封装 */ \"./mongoose基础封装/基础封装.js\");\nvar mongoose = __webpack_require__(/*! mongoose */ \"./node_modules/mongoose/dist/browser.umd.js\");\n\n\nvar Schema = {\n  sex: {\n    type: String,\n    default: \"female\"\n  },\n  age: Number,\n  name: String\n};\n(0,_mongoose___WEBPACK_IMPORTED_MODULE_0__.default)('school', 'student', Schema).find({}, \"name age -_id\", function (error, docs) {\n  if (!error) {\n    console.log(docs);\n  }\n});\n\n//# sourceURL=webpack://mongoose-test/./js/03_test_%E5%B0%81%E8%A3%85.js?");
+eval("var mongoose = __webpack_require__(/*! mongoose */ \"./node_modules/mongoose/dist/browser.umd.js\"); // import mongooseBaseConfig from '../mongoose基础封装/基础封装'\n\n\nvar _require = __webpack_require__(/*! ../mongoose基础封装/基础封装 */ \"./mongoose基础封装/基础封装.js\"),\n    mongooseBaseConfig = _require.mongooseBaseConfig;\n\nvar Schema = {\n  sex: {\n    type: String,\n    default: \"female\"\n  },\n  age: Number,\n  name: String\n};\nmongooseBaseConfig('school', 'student', Schema).find({}, \"name age -_id\", function (error, docs) {\n  if (!error) {\n    console.log(docs);\n  }\n});\n\n//# sourceURL=webpack://mongoose-test/./js/03_test_%E5%B0%81%E8%A3%85.js?");
 
 /***/ }),
 
@@ -34,10 +33,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mon
 /*!******************************!*\
   !*** ./mongoose基础封装/基础封装.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ mongooseBaseConfig)\n/* harmony export */ });\nfunction mongooseBaseConfig(DataBaseName, collectName, options) {\n  mongoose.connect(\"mongodb://localhost/\".concat(DataBaseName), {\n    useNewUrlParser: true,\n    useUnifiedTopology: true\n  });\n  var db = mongoose.connection;\n  db.on(\"error\", console.error.bind(console, \"连接失败\"));\n  db.once(\"open\", function () {\n    console.log(\"连接成功\");\n  });\n  var stuSchema = new mongoose.Schema(options);\n  var StuModel = mongoose.model(collectName, stuSchema);\n  return StuModel;\n}\n\n//# sourceURL=webpack://mongoose-test/./mongoose%E5%9F%BA%E7%A1%80%E5%B0%81%E8%A3%85/%E5%9F%BA%E7%A1%80%E5%B0%81%E8%A3%85.js?");
+eval("//es6 moudle方法\n// export default function mongooseBaseConfig(DataBaseName, collectName, options,) {\n//   mongoose.connect(`mongodb://localhost/${DataBaseName}`, {\n//     useNewUrlParser: true,\n//     useUnifiedTopology: true,\n//   });\n//   const db = mongoose.connection;\n//   db.on(\"error\", console.error.bind(console, \"连接失败\"));\n//   db.once(\"open\", () => {\n//     console.log(\"连接成功\");\n//   });\n//   const stuSchema = new mongoose.Schema(options);\n//   const StuModel = mongoose.model(collectName, stuSchema);\n//   return StuModel\n// }\n//commonJS方法\nvar mongoose = __webpack_require__(/*! mongoose */ \"./node_modules/mongoose/dist/browser.umd.js\");\n\nfunction mongooseBaseConfig(DataBaseName, collectName, options) {\n  mongoose.connect(\"mongodb://localhost/\".concat(DataBaseName), {\n    useNewUrlParser: true,\n    useUnifiedTopology: true\n  });\n  var db = mongoose.connection;\n  db.on(\"error\", console.error.bind(console, \"连接失败\"));\n  db.once(\"open\", function () {\n    console.log(\"连接成功\");\n  });\n  var stuSchema = new mongoose.Schema(options);\n  var StuModel = mongoose.model(collectName, stuSchema);\n  return StuModel;\n}\n\nmodule.exports = {\n  mongooseBaseConfig: mongooseBaseConfig\n};\n\n//# sourceURL=webpack://mongoose-test/./mongoose%E5%9F%BA%E7%A1%80%E5%B0%81%E8%A3%85/%E5%9F%BA%E7%A1%80%E5%B0%81%E8%A3%85.js?");
 
 /***/ })
 
@@ -66,35 +64,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	

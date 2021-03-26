@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-import mongooseBaseConfig from '../mongoose基础封装/基础封装'
+//CommonJs模块语法
+const { mongooseBaseConfig } = require("../mongoose基础封装/基础封装");
 
 const Schema={
   sex: {
@@ -9,6 +10,7 @@ const Schema={
   age: Number,
   name: String,
 }
+
 mongooseBaseConfig('school','student',Schema).find({},"name age -_id",(error,docs) => {
   if (!error) {
     console.log(docs);
